@@ -49,4 +49,4 @@ change group recursively
 sudo chmod -R ug+rwx storage bootstrap/cache
 change permissions recursively, add read write and execute to users and group
 
-No.
+Yes
