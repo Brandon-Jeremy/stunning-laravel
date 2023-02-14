@@ -1,0 +1,3 @@
+sudo: Admin priviledges; super user 
+apt-get: allows user to install modify or remove packages
+IP: 172.31.44.158
