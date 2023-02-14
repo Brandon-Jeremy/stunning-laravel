@@ -1,3 +1,52 @@
 sudo: Admin priviledges; super user 
 apt-get: allows user to install modify or remove packages
 IP: 172.31.44.158
+
+Checkpoint1: 
+
+sudo apt-get apache2 mysql-server php-mysql php libapache2-mon-php php-pear curl php-curl php-cli git
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+
+Checkpoint2:
+
+cd /var/www/html
+pwd
+git clone <link>
+
+Checkpoint3: 
+
+sudo apt update
+sudo apt install php-cli unzip
+cd ~
+curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
+HASH=`curl -sS https://composer.github.io/installer.sig`
+php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+composer install
+
+Checkpoint4:
+
+pwd
+sudo cp .env.example .env
+sudo vim .env then :x
+sudo php artisan key:generate
+
+Checkpoint5:
+
+sudo find / -name apache2
+cd /etc/apache2
+ls
+sudo vim apache2.conf then :x
+cd sites-enabled
+sudo vim 000-default.conf then :x
+sudo systemctl restart apache2
+
+Checkpoint6:
+cd /var/www/html/stunning-laravel
+sudo chgrp -R www-data storage bootstrap/cache” 
+change group recursively 
+sudo chmod -R ug+rwx storage bootstrap/cache
+change permissions recursively, add read write and execute to users and group
+
+No.
