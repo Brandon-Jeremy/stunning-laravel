@@ -38,8 +38,23 @@ sudo find / -name apache2
 cd /etc/apache2
 ls
 sudo vim apache2.conf then :x
+CHANGES MADE TO APACHE2.CONF:
+    <Directory /var/www/html/stunning-laravel/public>
+    Options Indexes FollowSymLinks
+    AllowOverride all
+    Require all granted
+    </Directory>
+    
+    and remove the other empty /var/www/
+
 cd sites-enabled
 sudo vim 000-default.conf then :x
+CHANGES MADE TO 000-...:
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/stunning-laravel/public/
+    
+    Added under “<VirtualHost *:80>" and removed the other ServerAdmin and DocumentRoot section
+    
 sudo systemctl restart apache2
 
 Checkpoint6:
